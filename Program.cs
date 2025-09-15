@@ -1,11 +1,11 @@
 ﻿var currentDirectory = Directory.GetCurrentDirectory();
 var storesDirectory = Path.Combine(currentDirectory, "stores");
-var salesFiles = FindFiles(storesDirectory);
 
-foreach (var file in salesFiles)
-{
-    Console.WriteLine(file);
-}
+var salesTotalDir = Path.Combine(currentDirectory, "salesTotalDir");
+Directory.CreateDirectory(salesTotalDir);   
+
+var salesFiles = FindFiles(storesDirectory);
+File.WriteAllText(Path.Combine(salesTotalDir, "totals.txt"), String.Empty);
 
 
 // See https://aka.ms/new-console-template for more information
